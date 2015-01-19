@@ -9,7 +9,9 @@
 
 #define FULLRESOURCEVALUE 100
 
-#define PADDING 1
+#define DIMENSION 30
+#define SPACING 40
+#define PADDING 25
 
 class Tile 
 {

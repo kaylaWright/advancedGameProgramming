@@ -151,7 +151,7 @@ void Resize(int _w, int _h)
 */
 void InputMouse(int _button, int _state, int _x, int _y)
 {
-
+	std::cout << _x << " " << _y << std::endl;
 }
 
 //handles mouse motion, allows for cursor following. 

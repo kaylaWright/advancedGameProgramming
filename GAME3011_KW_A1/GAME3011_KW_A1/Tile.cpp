@@ -62,12 +62,7 @@
 			break;
 		}
 
-		glBegin(GL_QUADS);
-			glVertex3f(20 * x + PADDING, 20 * y + PADDING, 0.0f); // The bottom left corner  
-			glVertex3f(20 * x + PADDING, 40 * y - PADDING, 0.0f); // The top left corner  
-			glVertex3f(40 * x - PADDING, 40 * y - PADDING, 0.0f); // The top right corner  
-			glVertex3f(40 * x - PADDING, 20 * y + PADDING, 0.0f); // The bottom right corner 
-		glEnd();
+		glRectf(PADDING + x * SPACING, PADDING + y * SPACING, PADDING + x * SPACING + DIMENSION, PADDING + y * SPACING + DIMENSION);
 	}
 
 
