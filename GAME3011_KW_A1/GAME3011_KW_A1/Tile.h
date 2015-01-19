@@ -17,11 +17,19 @@ class Tile
 {
 
 private:
+	//position of the tile in the grid (not actual pixel position) allows for easy revealing of neighbours.
+	int x, y;
+	//determines if the tile's value has been revealed to the user or not. 
+	bool isMasked;
 	//the resource value of this given tile. 
 	float value;
 	// array of neighbors not needed -> can check and reveal neighbours that way.
 protected:
 public:
+	//adjusted X and adjusted Y values reflect the actual, pixel-based location of the tile, not just the location in the grid. 
+	int adjX;
+	int adjY; 
+
 	//constructors
 	Tile();
 	Tile(int _x, int _y);
@@ -30,12 +38,8 @@ public:
 	//destructor.
 	~Tile();
 
-	//position of the tile in the grid (not actual pixel position) allows for easy revealing of neighbours.
-	int x, y;
-
 	//practical functions.
 	void Excavate();
-	void Reveal();
 	void Render();
 
 	//get sets.
@@ -45,6 +49,8 @@ public:
 	// function -> get/set value.
 	float GetValue() const;
 	void SetValue (float _val);
+	bool GetMasked() const; 
+	void SetMasked(bool _new);
 };
 
 #endif

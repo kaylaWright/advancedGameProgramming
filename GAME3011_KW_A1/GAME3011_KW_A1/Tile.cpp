@@ -3,18 +3,16 @@
 //Constructors/Destructors
 #pragma region Cons/Des
 
-	Tile::Tile()
+Tile::Tile() : value(0), x(0), y(0), isMasked(true)
 	{
-		value = 0;
-		x = 0;
-		y = 0;
+		adjX = PADDING + x * SPACING;
+		adjY = PADDING + y * SPACING;
 	}
 
-	Tile::Tile(int _x, int _y)
+	Tile::Tile(int _x, int _y) : value(0), x(_x), y(_y), isMasked(true)
 	{
-		value = 0;
-		x = _x;
-		y = _y;
+		adjX = PADDING + x * SPACING;
+		adjY = PADDING + y * SPACING;
 	}
 
 	Tile::Tile(const Tile &_obj)
@@ -22,6 +20,10 @@
 		value = _obj.GetValue();
 		x = _obj.x;
 		y = _obj.y; 
+		isMasked = _obj.GetMasked();
+
+		adjX = PADDING + x * SPACING;
+		adjY = PADDING + y * SPACING;
 	}
 
 	Tile::~Tile()
@@ -38,21 +40,16 @@
 
 	}
 
-	void Tile::Reveal()
-	{
-
-	}
-
 	void Tile::Render()
 	{
-	
 		switch(static_cast<int>(value))
 		{
+			//i like goooold 218,165,32
 		case FULLRESOURCEVALUE:
-			glColor3f(0.0f, 1.0f, 0.0f);
+			glColor3f(0.85f, 0.65f, 0.13f);
 			break;
 		case (FULLRESOURCEVALUE/2):
-			glColor3f(0.2f, 0.8f, 0.2f);
+			glColor3f(0.5f, 0.5f, 0.0f);
 			break;
 		case (FULLRESOURCEVALUE/4):
 			glColor3f(0.4f, 0.6f, 0.4f);
@@ -60,6 +57,11 @@
 		default: 
 			glColor3f(0.4f, 0.4f, 0.4f);
 			break;
+		}
+
+		if(isMasked)
+		{
+			glColor3f(0.2f, 0.2f, 0.2f);
 		}
 
 		glRectf(PADDING + x * SPACING, PADDING + y * SPACING, PADDING + x * SPACING + DIMENSION, PADDING + y * SPACING + DIMENSION);
@@ -79,6 +81,16 @@
 	void Tile::SetValue(float _val)
 	{
 		value = _val;
+	}
+
+	bool Tile::GetMasked() const 
+	{
+		return isMasked;
+	}
+
+	void Tile::SetMasked(bool _new)
+	{
+		isMasked = _new;
 	}
 
 #pragma endregion 
