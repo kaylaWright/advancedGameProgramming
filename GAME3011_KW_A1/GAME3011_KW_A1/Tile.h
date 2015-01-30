@@ -1,4 +1,4 @@
-//Tiles form the backbone of the game. 
+//Tiles form the backbone of the game. Could have subclassed from button, but doesn't for the sake of mouseOver, etc. 
 
 #ifndef _TILE_H_
 #define _TILE_H_
@@ -39,7 +39,6 @@ public:
 	~Tile();
 
 	//practical functions.
-	void Excavate();
 	void Render();
 
 	//get sets.

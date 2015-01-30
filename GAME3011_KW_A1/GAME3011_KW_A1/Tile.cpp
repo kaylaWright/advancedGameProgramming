@@ -35,11 +35,6 @@ Tile::Tile() : value(0), x(0), y(0), isMasked(true)
 
 #pragma region tile functions.
 
-	void Tile::Excavate()
-	{
-
-	}
-
 	void Tile::Render()
 	{
 		switch(static_cast<int>(value))
